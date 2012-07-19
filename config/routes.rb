@@ -1,5 +1,6 @@
 Dvoraktutorial::Application.routes.draw do
   match 'lesson/:id' => 'lessons#lesson'
+  match 'check/:id' => 'lessons#check', via: :post
 
   root to: 'lessons#index'
   # The priority is based upon order of creation:
