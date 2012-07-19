@@ -9,10 +9,15 @@ class LessonsController < ApplicationController
 
   def check
     @lesson = Lesson.find(params[:id])
-    @answer = params[:answer]
 
-    if @lesson.content == @answer
-      redirect_to action: 'lesson', id: @lesson.id + 1
+    if @lesson.content == params[:answer]
+      begin
+        nextLesson = Lesson.find(@lesson.id + 1)
+      rescue ActiveRecord::RecordNotFound
+        redirect_to action: 'index'
+      else
+        redirect_to action: 'lesson', id: nextLesson.id
+      end
     else
       redirect_to action: 'lesson', id: @lesson.id
     end
