@@ -12,7 +12,7 @@ class LessonsController < ApplicationController
     @answer = params[:answer]
 
     if @lesson.content == @answer
-      redirect_to action: 'index'
+      redirect_to action: 'lesson', id: @lesson.id + 1
     else
       redirect_to action: 'lesson', id: @lesson.id
     end
