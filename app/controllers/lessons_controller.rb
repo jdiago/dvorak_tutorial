@@ -4,6 +4,6 @@ class LessonsController < ApplicationController
   end
 
   def lesson
-    
+    @lesson = Lesson.find(params[:id])
   end
 end
