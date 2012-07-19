@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Lesson.delete_all
+
+Lesson.create(name: 'Lesson 1 Introducing U and H: Home row, Index fingers', 
+  content: 'uuuu hhhh uuuu hhhh uuuu hhhh uuuu hhhh')

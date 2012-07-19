@@ -1,4 +1,7 @@
 Dvoraktutorial::Application.routes.draw do
+  match 'lesson/:id' => 'lessons#lesson'
+
+  root to: 'lessons#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
