@@ -1,5 +1,5 @@
 <ul>
 <% @lessons.each do |lesson| %>
-  <li><%= link_to lesson.name, controller: "lessons", action: "lesson", id: lesson.id %></li>
+  <li><%= link_to lesson.name, lesson_path(lesson.id) %></li>
 <% end %>
 </ul>

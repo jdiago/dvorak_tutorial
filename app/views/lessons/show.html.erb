@@ -3,7 +3,7 @@
   <%= @lesson.content %>
 </div>
 
-<%= form_tag({controller: "lessons", action: "check"}, method: "post") do %>
+<%= form_tag(lesson_check_path(@lesson.id), method: "post") do %>
   <div>
     <%= text_field_tag(:answer) %>
   </div>
