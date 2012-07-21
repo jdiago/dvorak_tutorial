@@ -16,10 +16,10 @@ class LessonsController < ApplicationController
       rescue ActiveRecord::RecordNotFound
         redirect_to lessons_path
       else
-        redirect_to lesson_path(nextLesson.id)
+        redirect_to nextLesson
       end
     else
-      redirect_to lesson_path(lesson.id)
+      redirect_to lesson
     end
   end
 end
