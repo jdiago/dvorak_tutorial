@@ -1,4 +1,14 @@
 Dvoraktutorial::Application.routes.draw do
+  get "admin/index"
+
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  resources :users
+
   # match 'lesson/:id' => 'lessons#lesson', via: :get
   # match 'check/:id' => 'lessons#check', via: :post
 
