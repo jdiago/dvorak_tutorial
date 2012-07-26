@@ -7,3 +7,7 @@ one:
 two:
   name: MyString
   password_digest: MyString
+
+jo:
+  name: Josef
+  password_digest: <%= BCrypt::Password.create('hunter2') %>
