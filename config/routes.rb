@@ -9,9 +9,6 @@ Dvoraktutorial::Application.routes.draw do
 
   resources :users
 
-  # match 'lesson/:id' => 'lessons#lesson', via: :get
-  # match 'check/:id' => 'lessons#check', via: :post
-
   resources :lessons do
     post :check
   end
