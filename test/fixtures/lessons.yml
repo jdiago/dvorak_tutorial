@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  content: MyString
+  name: Lesson 1
+  content: uuuu hhhh
 
 two:
-  name: MyString
-  content: MyString
+  name: Lesson 2
+  content: eeee tttt

@@ -7,6 +7,20 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
   end
 
+  def new
+    @lesson = Lesson.new
+  end
+
+  def create
+    @lesson = Lesson.new(params[:lesson])
+
+    if @lesson.save
+      redirect_to @lesson, notice: "Lesson #{@lesson.name} was successfully created."
+    else
+      rander action: "new"
+    end
+  end
+
   def check
     lesson = Lesson.find(params[:lesson_id])
 
