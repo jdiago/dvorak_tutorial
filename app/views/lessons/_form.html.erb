@@ -1,0 +1,22 @@
+<% form_for @lesson do |f| %>
+  <% if @lesson.errors.any? %>
+    <div>
+      <h2><%= pluralize(@lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+      <ul>
+        <% @lesson.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.text_field :content %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

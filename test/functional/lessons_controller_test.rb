@@ -35,6 +35,16 @@ class LessonsControllerTest < ActionController::TestCase
     assert_redirected_to lesson_path(assigns(:lesson))
   end
 
+  test "should get edit" do
+    get :edit, id: @lesson
+    assert_response :success
+  end
+
+  test "should update lesson" do
+    put :update, id: @lesson, lesson: @input
+    assert_redirected_to lesson_path(assigns(:lesson))
+  end
+
   test "check wrong answer" do
     post :check, lesson_id: @lesson, answer: 'wrong'
     assert_redirected_to @lesson

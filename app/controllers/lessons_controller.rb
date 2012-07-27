@@ -21,6 +21,20 @@ class LessonsController < ApplicationController
     end
   end
 
+  def edit
+    @lesson = Lesson.find(params[:id])
+  end
+
+  def update
+    @lesson = Lesson.find(params[:id])
+
+    if @lesson.update_attributes(params[:lesson])
+      redirect_to @lesson, notice: "Lesson #{@lesson.name} was successfully updated."
+    else
+      render action: "edit"
+    end
+  end
+
   def check
     lesson = Lesson.find(params[:lesson_id])
 
