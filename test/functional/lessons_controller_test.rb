@@ -3,7 +3,6 @@ require 'test_helper'
 class LessonsControllerTest < ActionController::TestCase
   setup do
     @lesson = lessons(:one)
-    @lesson2 = lessons(:two)
 
     @input = {
       name: 'Lesson Test',
@@ -43,6 +42,14 @@ class LessonsControllerTest < ActionController::TestCase
   test "should update lesson" do
     put :update, id: @lesson, lesson: @input
     assert_redirected_to lesson_path(assigns(:lesson))
+  end
+
+  test "should destroy lesson" do
+    assert_difference('Lesson.count', -1) do
+      delete :destroy, id: @lesson
+    end
+
+    assert_redirected_to lessons_path
   end
 
   test "check wrong answer" do
