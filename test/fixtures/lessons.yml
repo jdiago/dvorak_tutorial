@@ -3,7 +3,9 @@
 one:
   name: Lesson 1
   content: uuuu hhhh
+  sequence: 1
 
 two:
   name: Lesson 2
   content: eeee tttt
+  sequence: 2

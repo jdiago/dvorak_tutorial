@@ -6,5 +6,6 @@ class LessonTest < ActiveSupport::TestCase
     assert lesson.invalid?
     assert lesson.errors[:name].any?
     assert lesson.errors[:content].any?
+    assert lesson.errors[:sequence].any?
   end
 end

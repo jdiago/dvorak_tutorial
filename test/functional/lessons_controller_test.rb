@@ -6,7 +6,8 @@ class LessonsControllerTest < ActionController::TestCase
 
     @input = {
       name: 'Lesson Test',
-      content: 'asdf;lkj'
+      content: 'asdf;lkj',
+      sequence: 3
     }
   end
 
