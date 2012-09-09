@@ -1,4 +1,4 @@
-<% form_for @lesson do |f| %>
+<%= form_for(@lesson) do |f| %>
   <% if @lesson.errors.any? %>
     <div>
       <h2><%= pluralize(@lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
@@ -11,10 +11,13 @@
   <% end %>
 
   <div>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "name" %>
   </div>
   <div>
-    <%= f.text_field :content %>
+    <%= f.text_field :content, placeholder: "content" %>
+  </div>
+  <div>
+    <%= f.text_field :sequence, placeholder: "sequence" %>
   </div>
   <div>
     <%= f.submit %>
