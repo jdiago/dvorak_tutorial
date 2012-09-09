@@ -46,12 +46,10 @@ class LessonsController < ApplicationController
     lesson = Lesson.find(params[:lesson_id])
 
     if lesson.content == params[:answer]
-      begin
-        nextLesson = Lesson.find(lesson.id + 1)
-      rescue ActiveRecord::RecordNotFound
-        redirect_to lessons_path
-      else
+      if nextLesson = Lesson.find_by_sequence(lesson.sequence + 1)
         redirect_to nextLesson
+      else
+        redirect_to lessons_path
       end
     else
       redirect_to lesson
