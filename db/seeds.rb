@@ -10,10 +10,12 @@ Lesson.delete_all
 User.delete_all
 
 Lesson.create(name: 'Lesson 1 Introducing U and H: Home row, Index fingers', 
-  content: 'uuuu hhhh uuuu hhhh uuuu hhhh uuuu hhhh')
+  content: 'uuuu hhhh uuuu hhhh uuuu hhhh uuuu hhhh',
+  sequence: 1)
 
 Lesson.create(name: 'Lesson 2 Introducing E and T: Home row, Second fingers',
-  content: 'eeee tttt eeee tttt eeee tttt eeee tttt')
+  content: 'eeee tttt eeee tttt eeee tttt eeee tttt',
+  sequence: 2)
 
 User.create(name: 'jodm',
   password: 'password',
