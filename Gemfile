@@ -6,7 +6,7 @@ group :development do
   gem 'sqlite3'
 end
 
-gem 'omniauth'
+gem 'omniauth-twitter'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
