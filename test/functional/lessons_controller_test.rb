@@ -13,17 +13,20 @@ class LessonsControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
+
     assert_response :success
     assert_not_nil assigns(:lessons)
   end
 
   test "should show lesson" do
     get :show, id: @lesson
+
     assert_response :success
   end
 
   test "should get new" do
     get :new
+
     assert_response :success
   end
 
@@ -37,11 +40,13 @@ class LessonsControllerTest < ActionController::TestCase
 
   test "should get edit" do
     get :edit, id: @lesson
+
     assert_response :success
   end
 
   test "should update lesson" do
     put :update, id: @lesson, lesson: @input
+
     assert_redirected_to lesson_path(assigns(:lesson))
   end
 
@@ -55,11 +60,23 @@ class LessonsControllerTest < ActionController::TestCase
 
   test "check wrong answer" do
     post :check, lesson_id: @lesson, answer: 'wrong'
+
     assert_redirected_to @lesson
   end
 
-  # test "right answer goes to next lesson" do
-  #   post :check, lesson_id: @lesson, answer: 'uuuu hhhh'
-  #   assert_redirected_to @lesson
-  # end
+  test "right answer goes to next lesson" do
+    post :check, lesson_id: @lesson, answer: 'uuuu hhhh'
+
+    next_lesson = Lesson.find_by_sequence(@lesson.sequence + 1)
+
+    assert_redirected_to lesson_path(next_lesson)
+  end
+
+  test "finishing the last lesson goes back to index" do
+    last_lesson = lessons(:two)
+
+    post :check, lesson_id: last_lesson, answer: 'eeee tttt'
+
+    assert_redirected_to lessons_path
+  end
 end
