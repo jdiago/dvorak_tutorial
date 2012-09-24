@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :password, :password_confirmation
+  include ActiveModel::ForbiddenAttributesProtection
+  
+  has_secure_password
 
   validates :name, presence: true, uniqueness: true
-  has_secure_password
 end

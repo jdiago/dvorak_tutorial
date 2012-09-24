@@ -1,6 +1,6 @@
 class Lesson < ActiveRecord::Base
-  attr_accessible :name, :content, :sequence
-
+  include ActiveModel::ForbiddenAttributesProtection
+  
   validates :name, presence: true
   validates :content, presence: true
   validates :sequence, presence: true
