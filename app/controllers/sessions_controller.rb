@@ -10,12 +10,6 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by_uid(auth['uid'])
     session[:user_id] = user.uid
     redirect_to lessons_url
-    # if user and user.authenticate(params[:password])
-    #   session[:user_id] = user.id
-    #   redirect_to root_url
-    # else
-    #   redirect_to login_url, alert: "Invalid user/password combo!"
-    # end
   end
 
   def destroy
