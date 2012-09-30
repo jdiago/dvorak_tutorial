@@ -1,4 +1,6 @@
 Dvoraktutorial::Application.routes.draw do
+  match '/auth/:provider/callback' => 'sessions#create'
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -11,5 +13,5 @@ Dvoraktutorial::Application.routes.draw do
     post :check
   end
 
-  root to: 'lessons#index'
+  root to: 'home#index'
 end
