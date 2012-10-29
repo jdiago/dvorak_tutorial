@@ -2,8 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-group :development do
+group :development, :test do
   gem 'sqlite3'
+end
+
+group :test do
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 gem 'omniauth-twitter'

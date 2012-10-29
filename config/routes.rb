@@ -1,9 +1,8 @@
 Dvoraktutorial::Application.routes.draw do
-  match '/auth/:provider/callback' => 'sessions#create'
+  match '/auth/:provider/callback' => 'sessions#create', via: :get
 
   controller :sessions do
     get 'login' => :new
-    post 'login' => :create
     delete 'logout' => :destroy
   end
 

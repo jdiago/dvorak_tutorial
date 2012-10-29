@@ -43,16 +43,16 @@ class LessonsController < ApplicationController
   end
 
   def check
-    lesson = Lesson.find(params[:lesson_id])
+    @lesson = Lesson.find(params[:lesson_id])
 
-    if lesson.content == params[:answer]
-      if nextLesson = Lesson.find_by_sequence(lesson.sequence + 1)
+    if @lesson.content == params[:answer]
+      if nextLesson = Lesson.find_by_sequence(@lesson.sequence + 1)
         redirect_to nextLesson
       else
         redirect_to lessons_path
       end
     else
-      redirect_to lesson
+      redirect_to @lesson
     end
   end
 end
